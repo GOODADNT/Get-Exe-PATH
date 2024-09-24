@@ -1,0 +1,66 @@
+[build-system]
+requires = ["hatchling", "hatch-fancy-pypi-readme"]
+build-backend = "hatchling.build"
+
+[project]
+name = "get_exe_path"
+dynamic = ["version"]
+authors = [
+    {name = "GOODAN", email = "ganwjt@163.com"}
+]
+description = "Easy to get EXE path on Windows platform"
+license = "Apache-2.0"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Software Development :: Widget Sets",
+]
+dependencies = [
+    "httpx",
+]
+
+[project.urls]
+"Source Code" = "https://github.com/GOODADNT/Get-Exe-Path"
+Homepage = "https://github.com/GOODADNT/Get-Exe-Path"
+Documentation = "https://github.com/GOODADNT/Get-Exe-Path/WIKI"
+"Bug Tracker" = "https://github.com/GOODADNT/Get-Exe-Path/issues"
+Changelog = "https://github.com/GOODADNT/Get-Exe-Path/CHANGELOG.md"
+
+[tool.hatch.version]
+path = "src/get_exe_path/__version__.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src/get_exe_path",
+    "/README.md",
+    "/CHANGELOG.md",
+    "/tests",
+]
+
+[tool.hatch.metadata.hooks.fancy-pypi-readme]
+content-type = "text/markdown"
+
+[[tool.hatch.metadata.hooks.fancy-pypi-readme.fragments]]
+path = "README.md"
+
+[[tool.hatch.metadata.hooks.fancy-pypi-readme.fragments]]
+text = "\n## Release Information\n\n"
+
+[[tool.hatch.metadata.hooks.fancy-pypi-readme.fragments]]
+path = "CHANGELOG.md"
+pattern = "\n(###.+?\n)## "
+
+[[tool.hatch.metadata.hooks.fancy-pypi-readme.fragments]]
+text = "\n---\n\n[Full changelog](https://github.com/GOODADNT/Get-Exe-Path/blob/master/CHANGELOG.md)\n"
